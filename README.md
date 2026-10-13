@@ -16,11 +16,10 @@ An MCP server for agent-driven design workflows, starting with Figma integration
 git clone https://github.com/mycoworkerai/mycai-design-mcp.git
 cd mycai-design-mcp
 npm install
-cp .env.example .env
 npm run dev
 ```
 
-This starter currently uses MCP's **stdio transport**. It is launched by an MCP-compatible host; it does not run as a standalone HTTP service yet.
+The starter uses MCP's **stdio transport** and is launched by an MCP-compatible host. It is not a standalone HTTP service yet.
 
 ## Scripts
 
@@ -44,14 +43,10 @@ The server will expose tools that let MYCAI Agents interact with Figma through s
 
 Do not assume full CRUD support for every Figma resource.
 
-## Environment
-
-Copy `.env.example` to `.env`. Never commit access tokens or production secrets. The environment file is a placeholder until the Figma authentication strategy is decided.
-
 ## Development principles
 
 - TypeScript strict mode.
-- Validate tool inputs at runtime.
+- Runtime validation for MCP tool inputs using Zod.
 - Keep tool handlers small and isolate Figma API logic in an adapter.
 - Never log access tokens.
 - Require explicit authorization before destructive operations.
@@ -62,5 +57,5 @@ Copy `.env.example` to `.env`. Never commit access tokens or production secrets.
 - [Node.js TypeScript support](https://nodejs.org/api/typescript.html)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript TSConfig reference](https://www.typescriptlang.org/tsconfig/)
-- [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Official MCP TypeScript SDK v2](https://ts.sdk.modelcontextprotocol.io/v2/)
 - [Figma Developers](https://developers.figma.com/)
