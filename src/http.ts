@@ -100,3 +100,5 @@ export function serveHttp(): void {
     console.error(`MYCAI Design MCP listening on port ${port} at ${MCP_PATH} (Streamable HTTP).`);
   });
 }
+
+serveHttp();
