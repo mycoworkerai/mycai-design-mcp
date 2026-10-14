@@ -65,7 +65,7 @@ export function serveHttp(): void {
     try {
       const body = req.method === "GET" || req.method === "HEAD" ? undefined : await readBody(req);
       const request = new Request(url, {
-        method: req.method,
+        method: req.method ?? "GET",
         headers: req.headers as HeadersInit,
         ...(body !== undefined && body.length > 0 ? { body } : {}),
       });
